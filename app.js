@@ -79,6 +79,9 @@ app.get("/register", (req, res) => {
 app.get("/usernotexist", (req, res) => {
   res.render("usernotexist");
 });
+app.get("/error", (req, res) => {
+  res.render("error");
+});
 app.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/login");
