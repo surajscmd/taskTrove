@@ -1,0 +1,46 @@
+<%- include('header'); -%>
+<div class="bg-continer">
+  <div class="welcom-navbar">
+    <div class="buttn-l">
+      <a href="/">
+        <img class="nav-logo" src="Assets/nav-logo-transperent.png" alt=""
+      /></a>
+      <a class="button-gn" href="/register">register</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4 text-center margin-top">
+        <h2 class="tagline">Login now!</h2>
+        <p class="abt-line">
+          Add All your Task in one Place, Simplify your life with TaskTrove..
+        </p>
+        <form action="/auth" method="post">
+          <div class="form-floating mb-2">
+            <input
+              type="email"
+              class="form-control round"
+              id="floatingInput"
+              name="email"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control round"
+              id="floatingPassword"
+              name="password"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="btn btn-success py-3 w-100">Login Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>

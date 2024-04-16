@@ -1,0 +1,54 @@
+<%- include('header'); -%>
+
+<div class="bg-continer">
+  <%- include('navbar'); -%>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4 text-center margin-top">
+        <h2 class="tagline">Register to Manage your task!</h2>
+        <p class="abt-line">
+          Look no further! TaskTrove is here to help you manage your tasks
+          efficiently
+        </p>
+
+        <form action="/add-user" method="post">
+          <div class="form-floating mb-2">
+            <input
+              type="text"
+              class="form-control round"
+              id="floatingInput"
+              name="name"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating mb-2">
+            <input
+              type="email"
+              class="form-control round"
+              id="floatingInput"
+              name="email"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control round"
+              id="floatingPassword"
+              name="password"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="btn btn-success py-3 w-100" type="submit">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>

@@ -1,0 +1,51 @@
+<%- include('header'); -%>  
+
+
+<div class="bg-continer-two">
+<%- include('nav-logout'); -%> 
+   <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 mt-5 ">
+                <h2 class="dashbeheding "> Admin : <span class="text-muted">@<%=user.name%> </span></h2>
+                <p class="mb-4 small"> Attention TaskTrove Admin !!! <span class="text-muted"><%=user.name%> , Please be aware that the list below contains user information.
+                   Exercise caution when using the delete button to remove users from the system.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <div class="row justify-content-center">
+            <div class="tablecontiner">
+               <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <%for(let i=0; i<users.length; i++){%>
+                      <tr>
+                        <th scope="row"><%=i+1%></th>
+                        <td><%= users[i].name %></td>
+                        <td><%= users[i].email %></td>
+                        <td>
+                            <form action="/delete-user" method="post">
+                                <input type="text" name="email" hidden value="<%= users[i].email %>">
+                                <button class="btn p-0 m-0 text-danger">Delete</button>
+                            </form>
+
+                        </td>
+                      </tr>
+                      <%}%>
+                    </tbody>
+                  </table>
+
+            </div>
+        </div>
+    </div>
+  </div>
+
+ <%- include('footer'); -%>

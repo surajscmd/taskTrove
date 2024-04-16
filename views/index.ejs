@@ -1,0 +1,65 @@
+<%- include('header'); -%>  
+
+<div class="bg-continer-two">
+
+<%- include('nav-logout'); -%> 
+    
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 margin-top">
+                <h2 class="dashbeheding"> Is there a task on your mind <span class="text-muted">@<%=user.name%> ?</span> Please add it now. </h2>
+                <!-- <p class="mb-4 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex sapiente similique ratione.</p> -->
+                <form action="/add-task" method="post"> 
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="todo" placeholder="name@example.com">
+                    <label for="floatingInput">New Thought? Add it</label>
+                 </div>
+                 <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="floatingPassword" name="dueDate" placeholder="Password">
+                    <label for="floatingPassword">Due Date</label>
+                 </div>
+                 <button  type="submit" class="btn btn-success py-3 px-4">Create Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container margin-top pb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <ol class="list-group list-group-numbered">
+                    <% for(let i=0; i<todos.length; i++) { %>
+                    
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                     <div class="ms-2 me-auto ">
+                    <form action="/delete" method="post">
+                        <div class="todotaks" id="textToStrike"><%= todos[i].title %></div>
+                        <div class="date"> 
+                        <% let dueDate= new Date(todos[i].dueDate) %>
+                        <%= dueDate.toLocaleDateString('en-us', {
+                            weekday: 'long', 
+                            day: 'numeric',
+                            month: 'long'
+                        }) %>
+                    </div>
+                      </div>
+                      <div class="flex-pro">
+                          <div class="checkbox-wrapper-39">
+                            <label>
+                              <input type="checkbox" id="checkbox"/>
+                              <span class="checkbox"></span>
+                            </label>
+                          </div>
+                        <button type="submit" value="<%=todos[i].title%>" name="btndelete"  class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                        </svg></button>
+                    </div>
+                        </li>
+                    </form>
+                    <% } %>
+                  </ol>  
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('footer'); -%>
